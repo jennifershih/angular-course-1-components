@@ -8,7 +8,11 @@ import { Course } from '../model/course';
 })
 export class CourseCardComponent implements OnInit {
 
-  @Input() course:Course;
+  @Input() 
+  course:Course;
+  
+  @Input()
+  cardIndex:number;
 
   @Output('courseSelected') courseEmitter = new EventEmitter<Course>();
 
@@ -17,9 +21,14 @@ export class CourseCardComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  isImageVisible(){
+    return this.course && this.course.iconUrl;
+  }
+  
   OnCourseViewed(){
     console.log("card component - button clicked ...");
     this.courseEmitter.emit(this.course);
   }
+ 
 
 }
