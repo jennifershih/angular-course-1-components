@@ -35,4 +35,9 @@ export class CourseCardComponent implements OnInit {
       return 'beginner';
     }
   }
+
+  cardStyle(){
+    // return {'text-decoration':'underline'};
+    return {'background-image': 'url(' + this.course.iconUrl + ')'}
+  }
 }
